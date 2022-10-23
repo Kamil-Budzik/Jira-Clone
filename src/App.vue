@@ -1,8 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import MainTemplate from '@components/Base/MainTemplate.vue';
+</script>
 
 <template>
-  <router-link to="/"> home </router-link>
-  <router-link to="/marketing-plan"> Marketing </router-link>
-  <router-link to="/roadmap"> Roadmap </router-link>
-  <router-view />
+  <main-template>
+    <router-view />
+  </main-template>
 </template>
