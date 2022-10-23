@@ -1,6 +1,14 @@
 import { createApp } from 'vue';
-import './style.css';
+import { OhVueIcon, addIcons } from 'oh-vue-icons';
+
 import App from './App.vue';
 import router from './router';
 
-createApp(App).use(router).mount('#app');
+import './style.css';
+
+addIcons();
+
+const app = createApp(App);
+app.component('v-icon', OhVueIcon);
+app.use(router);
+app.mount('#app');
