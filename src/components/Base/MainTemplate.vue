@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import NavBar from '@components/NavBar/NavBar.vue';
+import Logo from '@components/Logo.vue';
 </script>
 
 <template>
-  <div class="main-template-wrapper">
-    <div>
-      <p>LOGO</p>
+  <div class="main-template-wrapper mt-4">
+    <div class="bg-gray-400 m-2">
+      <Logo />
     </div>
-    <div>Page title</div>
-    <div class="nav-container">
+    <section class="flex items-center">
+      <header class="bg-white">
+        <h1 class="text-4xl text-white font-bold">Page Title</h1>
+      </header>
+    </section>
+    <div class="nav-container bg-gray-400">
       <Nav-bar />
     </div>
     <main class="main-content">
@@ -21,8 +26,8 @@ import NavBar from '@components/NavBar/NavBar.vue';
 .main-template-wrapper {
   height: 100vh;
   display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 76px 1fr;
 }
 .nav-container {
   grid-column: 1;

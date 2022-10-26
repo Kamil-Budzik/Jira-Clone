@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="text-lg text-red-200">
+  <li class="text-lg text-zinc-700">
     <router-link :to="`${to}`">
       <slot />
     </router-link>
