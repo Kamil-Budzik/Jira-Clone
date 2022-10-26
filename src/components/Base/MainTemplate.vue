@@ -8,15 +8,18 @@ import Logo from '@components/Logo.vue';
     <div class="bg-gray-400 m-2">
       <Logo />
     </div>
+    <div class="bg-white">Search bar</div>
     <section class="flex items-center">
       <header class="bg-white">
         <h1 class="text-4xl text-white font-bold">Page Title</h1>
       </header>
     </section>
-    <div class="nav-container bg-gray-400">
+    <nav
+      class="nav h-full flex items-center flex-col justify-center bg-gray-400"
+    >
       <Nav-bar />
-    </div>
-    <main class="main-content">
+    </nav>
+    <main class="main-content bg-gray-300">
       <slot />
     </main>
   </div>
@@ -29,7 +32,7 @@ import Logo from '@components/Logo.vue';
   grid-template-columns: 100px 1fr;
   grid-template-rows: 76px 1fr;
 }
-.nav-container {
+.nav {
   grid-column: 1;
   grid-row: 2;
 }
