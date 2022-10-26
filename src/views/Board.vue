@@ -1,5 +1,5 @@
 <template>
   <section>
-    <h2>Marketing Plan</h2>
+    <h2>Board</h2>
   </section>
 </template>

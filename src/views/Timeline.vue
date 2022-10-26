@@ -1,5 +1,5 @@
 <template>
   <section>
-    <h2>Platform Launch</h2>
+    <h2>Timeline</h2>
   </section>
 </template>
