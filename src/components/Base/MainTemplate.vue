@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import NavBar from '@components/NavBar/NavBar.vue';
 import Logo from '@components/Logo.vue';
+import { ref, onMounted } from 'vue';
+import { onAuthStateChanged } from '@firebase/auth';
+import auth from '../../auth';
+const isLoggedIn = ref(false);
+
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
+});
 </script>
 
 <template>
@@ -8,7 +22,9 @@ import Logo from '@components/Logo.vue';
     <div class="bg-gray-400 m-2">
       <Logo />
     </div>
-    <div class="bg-white">Search bar</div>
+    <div class="bg-white">
+      <p v-if="isLoggedIn">Search bar</p>
+    </div>
     <section class="flex items-center">
       <header class="bg-white">
         <h1 class="text-4xl text-white font-bold">Page Title</h1>
@@ -17,7 +33,7 @@ import Logo from '@components/Logo.vue';
     <nav
       class="nav h-full flex items-center flex-col justify-center bg-gray-400"
     >
-      <Nav-bar />
+      <Nav-bar :isLoggedIn="isLoggedIn" />
     </nav>
     <main class="main-content bg-gray-300">
       <slot />
