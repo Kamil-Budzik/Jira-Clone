@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
 import { RouterLink, useRouter } from 'vue-router';
 import { LINKS } from '../router';
 import auth from '../auth';
 import signInErrors from '../helpers/signInErrors';
+import googleIcon from '@/assets/google.svg';
 
 const email = ref('');
 const password = ref('');
@@ -21,7 +26,15 @@ const signIn = async () => {
     error.value = signInErrors(e.code);
   }
 };
-const signInWithGoogle = () => {};
+const signInWithGoogle = async () => {
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+    router.push(LINKS.BOARD);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 onMounted(() => {
   if (auth.currentUser) {
@@ -50,9 +63,16 @@ onMounted(() => {
       />
       <button
         type="submit"
-        class="bg-primary text-white font-semibold text-lg border-2 py-2 px-4 transition border-primary hover:text-primary hover:bg-white hover:border-primary w-full"
+        class="bg-primary text-white font-semibold text-lg border-2 py-2 px-4 transition border-primary hover:text-primary hover:bg-white hover:border-primary w-full my-2"
       >
         Login
+      </button>
+      <button
+        @click="signInWithGoogle"
+        class="bg-white text-primary font-semibold text-lg border-2 py-2 px-4 transition border-primary w-full flex items-center hover:bg-gray-300"
+      >
+        <img :src="googleIcon" alt="" class="w-6 mr-2" />
+        Auth with google
       </button>
       <p class="text-red-500 text-lg font-bold text-center" v-if="error">
         {{ error }}
