@@ -36,8 +36,8 @@ const routes = [
       :is-active="isActive === route.to"
       @click="isActive = route.to"
     />
-    <!-- <li>
+    <li>
       <nav-bar-logout-btn />
-    </li> -->
+    </li>
   </ul>
 </template>

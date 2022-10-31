@@ -22,7 +22,9 @@ onMounted(() => {
     <div class="bg-gray-400 m-2">
       <Logo />
     </div>
-    <div class="bg-white">Search bar</div>
+    <div class="bg-white">
+      <p v-if="isLoggedIn">Search bar</p>
+    </div>
     <section class="flex items-center">
       <header class="bg-white">
         <h1 class="text-4xl text-white font-bold">Page Title</h1>
