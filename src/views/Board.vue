@@ -1,7 +1,5 @@
 <script lang="ts">
-import { getAuth } from 'firebase/auth';
-
-const auth = getAuth();
+import auth from '../auth';
 
 console.log(auth.currentUser);
 </script>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NavBarItem from './NavBarItem.vue';
-import { LINKS } from '../../router';
-
+import NavBarLogoutBtn from './NavBarLogoutBtn.vue';
 import boardIcon from '@/assets/nav-icons/board-icon.svg';
 import timelineIcon from '@/assets/nav-icons/timeline-icon.svg';
 import chatIcon from '@/assets/nav-icons/chat-icon.svg';
 import filesIcon from '@/assets/nav-icons/files-icon.svg';
 import settingsIcon from '@/assets/nav-icons/settings-icon.svg';
 import taskIcon from '@/assets/nav-icons/task-icon.svg';
+import { LINKS } from '../../router';
 
 const isActive = ref('/board');
 const props = defineProps({
@@ -36,5 +36,8 @@ const routes = [
       :is-active="isActive === route.to"
       @click="isActive = route.to"
     />
+    <!-- <li>
+      <nav-bar-logout-btn />
+    </li> -->
   </ul>
 </template>

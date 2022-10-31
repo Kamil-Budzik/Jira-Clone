@@ -2,12 +2,11 @@
 import NavBar from '@components/NavBar/NavBar.vue';
 import Logo from '@components/Logo.vue';
 import { ref, onMounted } from 'vue';
-import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { onAuthStateChanged } from '@firebase/auth';
+import auth from '../../auth';
 const isLoggedIn = ref(false);
 
-let auth;
 onMounted(() => {
-  auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true;

@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { getAuth } from 'firebase/auth';
 import Board from './views/Board.vue';
 import Timeline from './views/Timeline.vue';
 import Chat from './views/Chat.vue';
@@ -8,6 +7,7 @@ import Settings from './views/Settings.vue';
 import Tasks from './views/Tasks.vue';
 import Register from './views/Register.vue';
 import SignIn from './views/SignIn.vue';
+import auth from './auth';
 
 export enum LINKS {
   BOARD = '/board',
@@ -42,9 +42,9 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (await getAuth().currentUser) {
+    if (auth.currentUser) {
       next();
     } else {
       console.log('You dont have access!');
