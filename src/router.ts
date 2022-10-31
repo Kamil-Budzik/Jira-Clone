@@ -42,9 +42,9 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (getAuth().currentUser) {
+    if (await getAuth().currentUser) {
       next();
     } else {
       console.log('You dont have access!');

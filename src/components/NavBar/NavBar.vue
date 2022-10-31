@@ -11,6 +11,9 @@ import settingsIcon from '@/assets/nav-icons/settings-icon.svg';
 import taskIcon from '@/assets/nav-icons/task-icon.svg';
 
 const isActive = ref('/board');
+const props = defineProps({
+  isLoggedIn: Boolean,
+});
 
 const routes = [
   { to: LINKS.BOARD, icon: boardIcon, alt: 'Main board' },
@@ -23,7 +26,7 @@ const routes = [
 </script>
 
 <template>
-  <ul class="h-1/2">
+  <ul class="h-1/2" v-if="isLoggedIn">
     <nav-bar-item
       v-for="route in routes"
       :to="route.to"
