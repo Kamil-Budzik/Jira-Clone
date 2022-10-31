@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NavBarItem from './NavBarItem.vue';
+import { LINKS } from '../../router';
+
 import boardIcon from '@/assets/nav-icons/board-icon.svg';
 import timelineIcon from '@/assets/nav-icons/timeline-icon.svg';
 import chatIcon from '@/assets/nav-icons/chat-icon.svg';
@@ -11,12 +13,12 @@ import taskIcon from '@/assets/nav-icons/task-icon.svg';
 const isActive = ref('/board');
 
 const routes = [
-  { to: '/board', icon: boardIcon, alt: 'Main board' },
-  { to: '/timeline', icon: timelineIcon, alt: 'Timeline' },
-  { to: '/tasks', icon: taskIcon, alt: 'Tasks' },
-  { to: '/chat', icon: chatIcon, alt: 'Chat' },
-  { to: '/files', icon: filesIcon, alt: 'Files' },
-  { to: '/settings', icon: settingsIcon, alt: 'Settings' },
+  { to: LINKS.BOARD, icon: boardIcon, alt: 'Main board' },
+  { to: LINKS.TIMELINE, icon: timelineIcon, alt: 'Timeline' },
+  { to: LINKS.TASKS, icon: taskIcon, alt: 'Tasks' },
+  { to: LINKS.CHAT, icon: chatIcon, alt: 'Chat' },
+  { to: LINKS.FILES, icon: filesIcon, alt: 'Files' },
+  { to: LINKS.SETTINGS, icon: settingsIcon, alt: 'Settings' },
 ];
 </script>
 
